@@ -9,3 +9,6 @@ export class PipesModel {
         public percent: number,
         public arraySlice: number[]){}
 }
+
+
+// model here
