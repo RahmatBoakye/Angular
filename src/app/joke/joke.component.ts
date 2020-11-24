@@ -16,10 +16,11 @@ import {
 import { Joke } from '../models/joke.model';
 
 @Component({
-  selector: 'app-joke', //this is using css matching rules : p { width: 10px, etc }
+  selector: 'app-joke', // this is using css matching rules : p { width: 10px, etc }
   templateUrl: './joke.component.html',
   styleUrls: ['./joke.component.css'],
 })
+
 export class JokeComponent
   implements
     OnChanges,
@@ -30,13 +31,14 @@ export class JokeComponent
     AfterViewInit,
     AfterViewChecked,
     OnDestroy {
-  //parent components will supply the joke object to you
-  @Input() joke: Joke; //this marks your joke component prop as an input prop to the DOM so we could use property binding to bind data to it in the Html of a parent component
-  //like <app-joke [joke]="someJsCode"></app-joke>
-  //if you wanted the input name to be something other than 'joke' to consumers, then do:
-  //@Input('theOtherName') joke: Joke;
 
-  //broadcast what's happened to your parent components
+  // parent components will supply the joke object to you
+  @Input() joke: Joke; // this marks your joke component prop as an input prop to the DOM so we could use property binding to bind data to it in the Html of a parent component
+  // like <app-joke [joke]="someJsCode"></app-joke>
+  // if you wanted the input name to be something other than 'joke' to consumers, then do:
+  // @Input('theOtherName') joke: Joke;
+
+  // broadcast what's happened to your parent components
   @Output() jokeDeleted = new EventEmitter<Joke>();
 
   constructor() {
@@ -45,26 +47,26 @@ export class JokeComponent
     );
   }
 
-  //use this to find out details about what input props have changed.
+  // use this to find out details about what input props have changed.
   ngOnChanges(changes: SimpleChanges) {
     console.log(
       `ngOnChanges => Parent => when input props change. See data is ${this.joke}`
     );
 
     for (let key in changes) {
-      console.log(`${key} changed. 
+      console.log(`${key} changed.
       Current: ${changes[key].currentValue}.
       Previous: ${changes[key].previousValue}`);
     }
   }
 
-  //input initialization logic goes here
+  // input initialization logic goes here
   ngOnInit(): void {
-    //if you want to initialize any logic for input properties of the components, do that here: e.g.: as the value of the input Joke
-    //would have been initialized properly here but if it was done in the ctor, it will be undefined.
+    // if you want to initialize any logic for input properties of the components, do that here: e.g.: as the value of the input Joke
+    // would have been initialized properly here but if it was done in the ctor, it will be undefined.
 
-    //and in the onChanges, it will keep re-initializing your value as this onChanges is called every time the input prop changes
-    //but onInit is only called once and that's it
+    // and in the onChanges, it will keep re-initializing your value as this onChanges is called every time the input prop changes
+    // but onInit is only called once and that's it
     console.log(
       `ngOnInit => Parent => when new component is initialized. See data is ${this.joke}`
     );
@@ -76,7 +78,7 @@ export class JokeComponent
     );
   }
 
-  //child component events
+  // child component events
   ngAfterContentInit() {
     console.log(
       `ngAfterContentInit => Child => when component content projection is done. See data is ${this.joke}`
@@ -101,7 +103,7 @@ export class JokeComponent
     );
   }
 
-  //add clean up logic for the component here
+  // add clean up logic for the component here
   ngOnDestroy() {
     console.log(
       `ngOnDestroy => Parent => when the component is about to die. See data is ${this.joke}`
@@ -113,12 +115,12 @@ export class JokeComponent
   }
 }
 
-//we link compos together with [inputs](props) and (output)events
+// we link compos together with [inputs](props) and (output)events
 
-//COMPONENT LIFE CYCLES Hooks
+// COMPONENT LIFE CYCLES Hooks
 // 1. Creation => Destroyed
 
-//Angular Component Hooks below: these are methods we can hook to during a components life cycle
+// Angular Component Hooks below: these are methods we can hook to during a components life cycle
 // 1. Parent Components:
 
 //     A. Constructor:

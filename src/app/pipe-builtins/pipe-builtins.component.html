@@ -1,0 +1,80 @@
+<h4><strong> {{title}} </strong></h4>
+<br>
+
+<div class="card card-block">
+    <h4 class="card-title">CurrencyPipe</h4>
+    <div class="card-text">
+        <p> {{pipesData.currency | currency: 'USD' : false}} </p>
+        <p> {{pipesData.currency | currency: 'GBP' : true}} </p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">DatePipe</h4>
+    <div class="card-text">
+        <p> {{pipesData.dateNow | date: 'shortTime'}}</p>
+        <p> {{pipesData.dateNow | date: 'fullDate'}}</p>
+        <p> {{pipesData.dateNow | date: 'd/M/y'}}</p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">DecimalPipe</h4>
+    <div class="card-text">
+        <p> {{pipesData.decimal | number: '3.1-2'}} </p>
+        <p> {{pipesData.decimal | number: '1.3-3'}} </p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">JsonPipe</h4>
+    <div class="card-text">
+        <p> {{pipesData.jsonVal | json}} </p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">LowerCasePipe</h4>
+    <div class="card-text">
+        <p> {{pipesData.lowerCase | lowercase}} </p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">UpperCasePipe</h4>
+    <div class="card-text">
+        <p>{{ pipesData.upperCase | uppercase }}</p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">PercentPipe</h4>
+    <div class="card-text">
+        <p>{{ pipesData.percent | percent }}</p>
+        <p>{{ pipesData.percent | percent: '2.1-2' }}</p>
+        <p>{{ pipesData.percent | percent: '2.1-1'}}</p>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">SlicePipe</h4>
+    <div class="card-text">
+        <p>{{pipesData.arraySlice | slice:1:3}}</p>
+        <p>{{pipesData.arraySlice | slice:0:3}}</p>
+        <p>{{pipesData.arraySlice | slice:2}}</p>
+        <p>{{pipesData.arraySlice | slice:2:-1}}</p>
+
+        <ul>
+            <li *ngFor="let item of pipesData.arraySlice | slice:2:-1; let i = index;">
+               item {{i}} = {{ item }}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="card card-block">
+    <h4 class="card-title">AsyncPipe</h4>
+    <div class="card-text">
+        <p></p>
+    </div>
+</div>

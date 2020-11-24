@@ -25,6 +25,7 @@ import { CardHoverDirective } from './card-hover.directive';
 import { RolloverImageDirective } from './rollover-image.directive';
 import { ShowImagesComponent } from './show-images/show-images.component';
 import { FormAppComponent } from './form-app/form-app.component';
+import { PipeBuiltinsComponent } from './pipe-builtins/pipe-builtins.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +48,14 @@ import { FormAppComponent } from './form-app/form-app.component';
     RolloverImageDirective,
     ShowImagesComponent,
     FormAppComponent,
+    PipeBuiltinsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, CommonModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent], //root component for our application
+  bootstrap: [AppComponent], // root component for our application
 })
 export class AppModule {}
 
-//Package together related components into an Angular Module
-//Angular modules structures angular code into packages
-//Combines code from different files into one package
+// Package together related components into an Angular Module
+// Angular modules structures angular code into packages
+// Combines code from different files into one package
