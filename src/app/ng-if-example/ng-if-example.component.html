@@ -1,0 +1,27 @@
+<h4>NgIf</h4>
+<ul *ngFor="let shop of shops; let i = index;">
+    <li *ngIf="shop.rating > 2">
+        <p><strong>shop: </strong>{{ shop.name }} ({{ i }})</p>
+        <p><strong>food: </strong>{{ shop.food }} ({{ i }})</p>
+        <p><strong>rating: </strong>{{ shop.rating }} ({{ i }})</p>
+    </li>
+</ul>
+
+
+<!---show the ones with rating not less than 3-->
+<!-- *ngIf="condition" , remember, you can't have you structural directives on the same element, hence: ngFor on ul & ngIf on li-->
+
+
+<!-- Let's rewrite ngIf structural directive using template tag (this is how to write custom directives) -->
+
+<h4>NgIf with NgTemplate Tag</h4>
+<ul *ngFor="let shop of shops; let i = index;">
+    <ng-template [ngIf]="shop.rating > 2">
+        <li>
+            <p><strong>shop: </strong>{{ shop.name }} ({{ i }})</p>
+            <p><strong>food: </strong>{{ shop.food }} ({{ i }})</p>
+            <p><strong>rating: </strong>{{ shop.rating }} ({{ i }})</p>
+        </li>
+
+    </ng-template>
+</ul>

@@ -1,0 +1,18 @@
+.card {
+  background-color: grey;
+}
+
+/* by default component styles are encapsulated which makes sure that the css for a component does not leak into other components */
+
+/* Angular is built on web components, which uses the shadow dom: this allows us to apply styles to parts of the web components
+ /* without it leaking outside the web components scope
+ This in angular is called View Encapsulation. */
+
+/* we can control it with the encapsulation property (on the @Component decorator called encapsulation: ViewEncapsulation.Emulated etc) on the components.
+ valid values are: native, emulated and none
+ the default is emulated */
+
+/* so although the joke-form and the joke components htmls both use the card css, only the joke-form card's styling will be affected by the extended .card prop
+ this is known as view encapsulation in Angular.
+ in old js, it would have changed the background color for every html element that uses the .card css
+ i.e.: both joke and joke-form */

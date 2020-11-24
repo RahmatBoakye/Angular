@@ -1,0 +1,49 @@
+<h1
+  [ngClass]="showHeaderText ? 'text-green' : 'text-red'"
+  *ngIf="showHeaderText == true"
+>
+  {{ headerText | uppercase }}
+</h1>
+<h1
+  [ngClass]="showHeaderText ? 'text-green' : 'text-red'"
+  *ngIf="showHeaderText == false"
+>
+  {{ headerText | lowercase }}
+</h1>
+
+<ul *ngIf="numbers.length > 0">
+  <li *ngFor="let number of numbers">{{ number | currency: "GBP" }}</li>
+</ul>
+
+<p *ngIf="numbers.length == 0">No Data to Display</p>
+
+<h3>{{ testDate | date: "short" }}</h3>
+
+<!--One-way Data-Binding-->
+<!--Prop binding: since the isDisabled data prop is flowing from the Component to the View and the view has no way of updating that value by itself-->
+<!--However, if the isDisabled prop value is changed in the Component, the View will get notified of the latest status of the prop value-->
+<input type="text" name="" id="" [disabled]="isDisabled" />
+
+<br />
+<br />
+<br />
+
+<!--One-way Data-Binding-->
+<!--Event binding: -->
+<button (click)="onBtnClick()">Click Me!!!</button>
+
+<!--Two-way Data-Binding-->
+<!--Example 1: This combines prop and event binding but this is not a good approach as it makes it a messy code-->
+<input
+  type="text"
+  placeholder="enter a new title"
+  [value]="title"
+  (keyup.enter)="title = $event.target.value"
+/>
+
+<h3>{{ title }}</h3>
+
+<!--Lets use ngModel directive-->
+<input type="text" placeholder="enter a new title" [(ngModel)]="newTitle" />
+
+<h3>{{ newTitle }}</h3>

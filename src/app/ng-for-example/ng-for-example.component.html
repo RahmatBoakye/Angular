@@ -1,0 +1,36 @@
+<h4>NgFor</h4>
+<ul>
+  <li *ngFor="let footballer of footballers; let i = index">
+    <p>
+      <strong>{{ i + 1 }}.Name: </strong>{{ footballer.name }}
+    </p>
+    <p>
+      <strong>{{ i + 1 }}.Club: </strong> {{ footballer.club }}
+    </p>
+  </li>
+</ul>
+
+
+<!-- Let's rewrite ngFor structural directive using template tag (this is how to write custom directives) -->
+
+<h4>NgFor with NgTemplate Tag</h4>
+<ul>
+  <ng-template ngFor let-footballer [ngForOf]="footballers">
+    <li>
+      <p>
+        <strong>Name: </strong>{{ footballer.name }}
+      </p>
+      <p>
+        <strong>Club: </strong> {{ footballer.club }}
+      </p>
+    </li>
+  </ng-template>
+</ul>
+
+
+<!-- Prepending a directive name with * helps us not to have to use the <ng-template></ng-template> syntax
+as the * tells the directive to use the element its attached to as its ng-template -->
+<!-- 
+Directives are components without a view
+We attach directives to elements by adding them as attributes: either *ngIf or [ngStyle]
+Built in directives: *ngIf *ngSwitch *ngFor [ngStyle][style.propname][ngClass][class.className] ngNonBindable -->

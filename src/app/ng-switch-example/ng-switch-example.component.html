@@ -1,0 +1,29 @@
+
+<h4>NgSwitch</h4>
+<ul *ngFor="let retailer of retailers; let i = index;" [ngSwitch]="retailer.location">
+    <li *ngSwitchCase="'ACCRA'" class="text-success">
+        {{retailer.name}} {{retailer.product}} ({{retailer.location}})
+    </li>
+
+    <li *ngSwitchCase="'KUMASI'" class="text-primary">
+        {{retailer.name}} {{retailer.product}} ({{retailer.location}})
+    </li>
+
+    <li *ngSwitchCase="'SUNYANI'" class="text-danger">
+        {{retailer.name}} {{retailer.product}} ({{retailer.location}})
+    </li>
+
+    <!-- default case -->
+    <li *ngSwitchDefault class="text-warning">
+        {{retailer.name}} {{retailer.product}} ({{retailer.location}})
+    </li>
+</ul>
+
+<!-- NgSwitch: render different elements based on different conditions.  -->
+<!-- looks like its a number of different directives working together as one -->
+<!--with NgSwitch, the condition to switch on is calculated just once and reused in the cases. i.e.: its not re-evaluated on every case-->
+
+
+<!-- in Summary
+- NgIf: for adding or removing element from DOM based on a condition
+- NgSwitch: used in place of a nested NgIfs as this way is cleaner  -->

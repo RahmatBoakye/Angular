@@ -1,0 +1,50 @@
+<!-- appCardHover is a custom directive that sets the backgroundColor to cyan -->
+<div class="card card-block" [appCardHover]="{ querySelector: '.card-text'}">
+  <div class="card-body">
+    <h4 class="card-title">
+      <!-- {{ joke.setup }} -->
+      <!-- select can map to the html tag in the parent component or the css class name -->
+      <!-- html tag e.g.: -->
+      <ng-content select="span"></ng-content>
+
+      <!-- classname e.g.: -->
+      <!-- <ng-content select=".cssClassName"></ng-content> -->
+    </h4>
+
+    <!-- <p class="card-text" [hidden]="joke.hide"> -->
+    <!-- {{ joke.punchLine }} -->
+    <!-- html tag e.g.: -->
+    <!-- <ng-content select="h1"></ng-content>
+    </p> -->
+
+    <p class="card-text" [style.display]="'none'">
+      <ng-content select="h1"></ng-content>
+    </p>
+    <div class="row">
+      <!-- <div class="col-md-3">
+        <button class="btn btn-info" (click)="joke.toggle()">Tell Me</button>
+      </div> -->
+      <div class="col-md-3">
+        <button class="btn btn-danger" (click)="onDeleteJokeBtnClick()">
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- making this ng-content means that any parent component can project (customize) the html it wants to show in this paragraph -->
+<!-- e.g.: the joke-list is currently showing the joke punchline as an <h1></h1> tag -->
+<!-- Content Projection: use this to allow other component users to supply or customize the component data display -->
+<!-- see line 6: we will now project html content from the parent component that uses
+the child joke component, to the child component -->
+
+<!-- VIEW CHILDREN AND CONTENT CHILDREN 
+1. View Child: elements used in a given component's view/template. We can access the html elements in the compo's view template by using the @ViewChild decorator. -->
+
+
+<!-- Directives: are components without a View.
+A single html element can have one component associated with it but a many directives can be applied to a single html element
+e.g.: the custom component tag : <app-joke></app-joke> with have only one component associated with it but the 
+same <app-joke></app-joke> html tag can have lots of directives applied to it like
+<app-joke *ngFor="let person of persons; let i = index;" *ngIf="1==1" [ngStyle]="{'fore-color':'red'}" [ngClass]="{'text-success': 'true'}"></app-joke> -->

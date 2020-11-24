@@ -1,0 +1,16 @@
+<h4>NgForGroupExample</h4>
+<ul>
+    <li *ngFor="let group of peopleByCountry;let i = index;">
+       <p><strong>Group:</strong> {{i}}</p>
+       <p><strong>Country:</strong> {{group.country}}</p>
+
+       <ul>
+           <li *ngFor="let person of group.people; let i = index">
+               <p>
+                  <strong>Person:</strong> {{i}}
+               </p>
+               <p> <strong>Name:</strong> {{person.name}}</p>
+           </li>
+       </ul>
+    </li>
+</ul>

@@ -1,0 +1,67 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- Output comment -->
+  <div class="card card-block">
+    <pre class="card-text">{{ form.value.comment }}</pre>
+  </div>
+
+  <p class="small">{{ form.value.lastUpdateTS }}</p>
+
+  <!-- Comment text area -->
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea
+      class="form-control"
+      formControlName="comment"
+      rows="3"
+    ></textarea>
+
+    <small class="form-text text-muted">
+      <span>{{ 100 - form.value.comment.length }}</span> character left
+    </small>
+  </div>
+
+  <!-- Name input -->
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      placeholder="Enter name"
+    />
+  </div>
+
+  <!-- Email input -->
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="Enter email"
+    />
+    <small class="form-text text-muted">
+      We'll never share your email with anyone else.
+    </small>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+    Submit
+  </button>
+</form>
+
+<!-- Notes on Streams:
+Stream is a sequence of values over time: e.g.: [0,1,2,3,4,...]
+Reactive Programming = Streams + operations. e.g. : stream of A values , Stream of B Values, mapped unto the operation Add, and result C just
+sits and gets updated everytime a new value is pushed unto the stream A and Stream B values. -->
+
+<!-- 
+you can program reactively using Observables and Rxjs library -->
+
+<!-- 
+Things to know:
+Observables: a primitive (Data type) to handle streams, i.e.: subscribe to a stream, react to new values and combine streams together to build new ones
+RxJs: Reactive Extensions for JavaScript: its a library that gives us an implementation of Observables for JavaScript
+RxJs Operators: -->
+
+<!-- Link streams together with Operators (e.g.: the Add operation was used to connect two streams (A, B) to create the 3rd stream (C)) -->

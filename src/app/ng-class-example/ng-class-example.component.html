@@ -1,0 +1,49 @@
+<h4>NgClass</h4>
+<ul>
+    <li *ngFor="let person of people; let i = index;"
+    [ngClass]="{'text-success':true}">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+
+    <hr>
+    <br>
+
+    <li *ngFor="let person of people; let i = index;"
+    [class]="'text-primary'">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+
+    <hr>
+    <br>
+
+    <li *ngFor="let person of people; let i = index;"
+    [class.text-danger]="true">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+
+    <hr>
+    <br>
+
+    <li *ngFor="let person of people; let i = index;"
+    [class.text-danger]="person.hobby === 'Eating'"
+    [class.text-success]="person.hobby === 'Skipping'"
+    [class.text-warning] = "person.hobby === 'Reading'">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+
+    <hr>
+    <br>
+
+    <li *ngFor="let person of people; let i = index;"
+    [ngClass]="getTextClass(person.hobby)">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+</ul>
+
+
+<!-- use *ngClass to set css class names on elements -->
+<!-- e.g.: [ngClass]="{'someCssClassname': true}" / [ngClass]="myFuncThatReturnsACssClassName()" -->
+
+<!-- to bind to one class: use the [class]="'nameOfClassToBindTo'" , it could also be:[class]="'aFuncThatReturnsNameOfCssclass'"   -->
+<!-- beware: that doing [class]="someClassName" will override any other class='someOtherClassNames' that the element already has.
+to fix this: use [class.ClassName]="sumfinThatEvaluatesToBoolean" -->

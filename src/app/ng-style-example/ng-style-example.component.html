@@ -1,0 +1,27 @@
+<h4>NgStyle</h4>
+<ul>
+    <li *ngFor="let person of people; let i = index;"
+    [ngStyle]="{'background-color': getColor(person.hobby)}"
+    [style.font-size.px]="24">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+
+    <hr>
+    <br>
+
+    <li *ngFor="let person of people; let i = index;"
+    [style.color]="getAnotherColorScheme(person.hobby)"
+    [ngStyle]="{'font-size.%':'200'}">
+        {{ person.name }} {{ person.hobby }} ({{ i }})
+    </li>
+
+</ul>
+
+
+<!-- you can use:  [ngStyle]="{'background-color':'green'}"> to set a static value -->
+<!-- you can use a js expression that will be evaluated to get your static value dynamically: 
+    e.g: [ngStyle]="{'background-color': person.hobby === 'Praying' ? 'green' : 'red'}">  -->
+
+ <!-- we can also call a func from the component to evaluate our values like: [ngStyle]="{'background-color': getColor(person.hobby)}">-->
+<!-- 
+ could also use the style.prop input attribute to set the value like: [style.background-color]="getColor(person.hobby)"> -->

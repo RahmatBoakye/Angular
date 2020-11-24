@@ -1,4 +1,7 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
+//Angular cli uses webpack bundler to transpile ts to ES5 js
+//You can install typescript globally on your local machine by: npm install -g typescript
+//check version with tsc -v (tsc = typescript compiler), this is used to transpile ts to js
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -12,9 +15,6 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"]
   }
 }

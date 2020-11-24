@@ -1,0 +1,9 @@
+.border-out {
+  border-style: outset;
+  border-color: red;
+}
+
+.border-in {
+  border-style: inset;
+  border-color: green;
+}
